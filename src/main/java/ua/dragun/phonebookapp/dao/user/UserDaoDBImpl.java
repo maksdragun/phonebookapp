@@ -43,7 +43,6 @@ public class UserDaoDBImpl implements UserDao {
         return true;
     }
 
-
     @Override
     @SuppressWarnings("unchecked")
     public List<User> findUsers() {
