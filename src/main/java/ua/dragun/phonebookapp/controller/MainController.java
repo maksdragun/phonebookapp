@@ -11,6 +11,10 @@ public class MainController {
 
     @RequestMapping("/*")
     public String main(HttpSession session) {
-        return "index";
+        if (session.getAttribute("username") != null) {
+            return "redirect:/phoneBookApp";
+        } else {
+            return "index";
+        }
     }
 }

@@ -1,0 +1,20 @@
+package ua.dragun.phonebookapp.service.enums;
+
+public enum Status {
+
+	// Registration Status
+	ALREADY_EXISTS,
+	INCORRECT_USERNAME,
+	INCORRECT_PASSWORD,
+	INCORRECT_FULLNAME,
+
+	// Contact Status
+	INCORRECT_SURNAME,
+	INCORRECT_FIRSTNAME,
+	INCORRECT_PATRONYMIC,
+	INCORRECT_MOBILE,
+	INCORRECT_HOME,
+	INCORRECT_EMAIL,
+
+	SUCCESS,
+}
