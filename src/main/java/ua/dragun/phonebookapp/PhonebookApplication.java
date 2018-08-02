@@ -11,17 +11,16 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class,
         HibernateJpaAutoConfiguration.class,
         JpaRepositoriesAutoConfiguration.class})
 @PropertySource(value = {"classpath:application.properties"})
-public class PhonebookappApplication {
+public class PhonebookApplication {
 
     public static void main(String[] args) {
         Locale.setDefault(Locale.getDefault());
-        SpringApplication.run(PhonebookappApplication.class, args);
+        SpringApplication.run(PhonebookApplication.class, args);
     }
 }

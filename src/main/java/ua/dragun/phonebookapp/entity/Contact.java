@@ -14,9 +14,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import ua.dragun.phonebookapp.entity.User;
-
-
 @Entity
 @Table(name = "contacts")
 public class Contact {
