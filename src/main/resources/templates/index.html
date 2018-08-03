@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en-US">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>PhoneBook Application</title>
@@ -26,12 +27,12 @@
             <div class="content">
                 <div class="form-group centered">
                     <form id="login" name="login" action="#" method="post"><br>
-                        <input class="txtfield" type="text" placeholder="Username"/><br>
-                        <input class="txtfield" type="password" placeholder="Password"/><br>
+                        <input class="txtfield has-feedback" type="text" placeholder="Username"/><br>
+                        <input class="txtfield has-feedback" type="password" placeholder="Password"/><br>
 
                         <input class="btn" type="submit" value="Log in"/><br>
 
-                        <a href="#" class="sidelink" id="showregister">Registration</a>
+                        <a href="/reg" class="sidelink" id="showregister">Registration</a>
                     </form>
                 </div>
             </div>
@@ -46,9 +47,11 @@
                         <input class="txtfield" type="password" placeholder="Password"/><br>
                         <input class="txtfield" type="text" placeholder="Full name"/><br>
 
+                        <div class="row form-answer" th:text="${answer}"></div>
+
                         <input class="btn" type="submit" value="Log in"/><br>
 
-                        <a href="#" class="leftsidelink" id="showlogin">Back to login form</a>
+                        <a href="/" class="leftsidelink" id="showlogin">Back to login form</a>
 
                     </form>
                 </div>
