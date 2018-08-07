@@ -1,26 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
+@import url(https://fonts.googleapis.com/css?family=Squada+One);
+
 body {
-    background: url("../images/background.png") repeat;
-}
-
-a {
-    text-decoration: none;
-    color: #4983bd;
-}
-
-a:hover {
-    text-decoration: underline;
+    padding: 20px 80px;
+    background: #eee url(../images/background.png);
 }
 
 input {
     display:block;
     width:400px;
     padding-top:10px;
-    padding-bottom:10px;
     border: 1px solid #a3a8fa;
     background: #D5CEFA;
     -webkit-border-radius:6px;
-    -moz-border-radius:6px;
-    border-radius:6px;
+       -moz-border-radius:6px;
+            border-radius:6px;
     margin-bottom:30px;
     margin-top:10px;
     color:#7f8c8d;
@@ -28,28 +22,45 @@ input {
     font-size:30px;
 
     -webkit-transition: all 0.4s linear;
-    -moz-transition: all 0.4s linear;
-    transition: all 0.4s linear;
+       -moz-transition: all 0.4s linear;
+            transition: all 0.4s linear;
 }
 
-h1 {
-    font-size: 2.2em;
-    font-family: 'ABeeZee', Arial, sans-serif;
-    font-weight: normal;
-    font-style: italic;
-    color: #575a5f;
-    margin-bottom: 22px;
-    padding-bottom: 22px;
-    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.65);
-    text-align: center;
+.logo {
+    font-family: 'Open Sans', sans-serif;
+    color: #555;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 70px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-shadow: #EDEDED 3px 2px 0;
+    position: relative;
+    padding-bottom:10px;
+}
+.logo:after {
+    content:"PHONEBOOK APPLICATION";
+    position: absolute;
+    left: 8px;
+    top: 20px;
+}
+.logo:after {
+    background-image: -webkit-linear-gradient(left top, transparent 0%, transparent 25%, #555 25%, #555 50%, transparent 50%, transparent 75%, #555 75%);
+    background-size: 4px 4px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: -5;
+    display: block;
+    text-shadow: none;
 }
 
 h2 {
-    font-size: 1.75em;
+    font-family: 'Open Sans', sans-serif;
+    color: #555;
     height: 40px;
     line-height: 40px;
     padding-left: 18px;
-    color: #997a4a;
     font-weight: bold;
     text-shadow: 1px 1px 1px rgba(255,255,255,0.65);
     background-color: #afc7f4;
@@ -74,17 +85,12 @@ h2 {
     overflow: hidden;
     height: auto;
     box-sizing: border-box;
-    background: #ffffff;
+    margin-bottom: auto;
+    margin-top: 5%;
+    background: url("../images/form-background.png") repeat;
     -webkit-box-shadow: 0 0 12px 0 rgba(150, 180, 210, .9);
-    -moz-box-shadow: 0 0 12px 0 rgba(150, 180, 210, .9);
-    box-shadow: 0 0 12px 0 rgba(150, 180, 210, .9);
-}
-
-.content {
-    box-sizing: border-box;
-    width: 600px;
-    margin: 0 auto;
-    padding: 25px 15px 5px;
+       -moz-box-shadow: 0 0 12px 0 rgba(150, 180, 210, .9);
+            box-shadow: 0 0 12px 0 rgba(150, 180, 210, .9);
 }
 
 /* inner page layouts */
@@ -92,7 +98,6 @@ h2 {
     display: block;
     position: relative;
     width: 100%;
-
 }
 
 #content-registration {
@@ -102,13 +107,6 @@ h2 {
     top: 0;
     text-align: center;
     left: 880px;
-
-}
-
-.sidelink {
-    font-size: 0.75em;
-    font-weight: normal;
-    justify-content:center;
 }
 
 /* form styles */
@@ -152,8 +150,8 @@ form#login, form#registration {
     width:315px;
     padding:14px;
     -webkit-border-radius:6px;
-    -moz-border-radius:6px;
-    border-radius:6px;
+       -moz-border-radius:6px;
+            border-radius:6px;
     border:0;
     margin-bottom:12px;
     background: rgba(164, 165, 179, 0.33);
