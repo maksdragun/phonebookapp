@@ -65,7 +65,7 @@ public class PhoneBookAppServiceDBImpl implements PhoneBookAppService {
     }
 
     @Override
-    public Integer delete(Integer id, String userName) {
+    public Integer remove(Integer id, String userName) {
         Contact contact = contactDao.view(id);
         if(contact != null) {
             contactDao.remove(contact);

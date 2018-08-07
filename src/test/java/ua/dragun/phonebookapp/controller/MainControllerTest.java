@@ -11,23 +11,22 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-public class IndexControllerTest {
+public class MainControllerTest {
 	
 	@InjectMocks
-	private LoginController loginController;
+	private MainController mainController;
 	
 	private MockMvc mockMvc;
 	
 	@BeforeEach
 	public void initialization(){
 		MockitoAnnotations.initMocks(this);
-		mockMvc = MockMvcBuilders.standaloneSetup(loginController).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(mainController).build();
 	}
 	
 	@Test
 	public void testWithNoSession() throws Exception {
-		mockMvc.perform(get("/"))
-				.andExpect(view().name("index"));
+		mockMvc.perform(get("/")).andExpect(view().name("index"));
 	}
 	
 	@Test

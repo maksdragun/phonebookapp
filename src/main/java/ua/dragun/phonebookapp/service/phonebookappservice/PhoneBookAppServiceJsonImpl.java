@@ -80,7 +80,7 @@ public class PhoneBookAppServiceJsonImpl implements PhoneBookAppService {
     }
 
     @Override
-    public Integer delete(Integer id, String userName) {
+    public Integer remove(Integer id, String userName) {
         User user = userDao.view(userName);
         Set<Contact> set = user.getContacts();
         for (Contact contacts : set) {

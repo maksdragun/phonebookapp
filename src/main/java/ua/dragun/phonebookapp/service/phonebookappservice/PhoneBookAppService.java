@@ -6,5 +6,5 @@ import ua.dragun.phonebookapp.service.enums.Status;
 public interface PhoneBookAppService {
     Status add(Contact contact, String userName);
     Status edit(Contact contact, String userName);
-    Integer delete(Integer contactId, String userName);
+    Integer remove(Integer contactId, String userName);
 }
