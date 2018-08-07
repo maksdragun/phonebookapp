@@ -38,12 +38,12 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registration(@RequestParam String usernameReg,
-                      @RequestParam String passwordReg,
+    public String registration(@RequestParam String username,
+                      @RequestParam String password,
                       @RequestParam String fullName,
                       HttpSession session,
                       RedirectAttributes redirectAttributes) {
-        Status status = loginService.create(usernameReg, passwordReg, fullName);
+        Status status = loginService.create(username, password, fullName);
         switch(status) {
             case ALREADY_EXISTS:
                 redirectAttributes.addFlashAttribute("message", "This Login already exists!");
@@ -59,7 +59,7 @@ public class LoginController {
                 return "redirect:/";
             case SUCCESS:
                 session.setMaxInactiveInterval(900);
-                session.setAttribute("username", usernameReg);
+                session.setAttribute("username", username);
                 return "redirect:/phoneBookApp";
         }
         return "redirect:/";

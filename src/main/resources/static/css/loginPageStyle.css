@@ -156,6 +156,7 @@ form#login, form#registration {
     border-radius:6px;
     border:0;
     margin-bottom:12px;
+    background: rgba(164, 165, 179, 0.33);
     color:#7f8c8d;
     font-weight:600;
     font-size:16px;
