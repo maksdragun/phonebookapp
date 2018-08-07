@@ -22,52 +22,46 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/signIn", method = RequestMethod.POST)
-    public String singIn(@RequestParam String login,
+    public String singIn(@RequestParam String username,
                          @RequestParam String password,
                          HttpSession session,
                          RedirectAttributes redirectAttributes) {
-        User user = loginService.findByUsername(login);
+        User user = loginService.findByUsername(username);
         if(user == null || !user.getPassword().equals(password)) {
-            redirectAttributes.addFlashAttribute("answer", "Wrong Login or Password!");
+            redirectAttributes.addFlashAttribute("message", "Wrong Username or Password!");
             return "redirect:/";
         } else {
             session.setMaxInactiveInterval(900);
-            session.setAttribute("login", login);
-            return "redirect:/phoneBook";
+            session.setAttribute("username", username);
+            return "redirect:/phoneBookApp";
         }
     }
 
-    @RequestMapping(value = "/signUp")
-    public String signUp() {
-        return "signUp";
-    }
-
-    @RequestMapping(value = "/reg", method = RequestMethod.POST)
-    public String reg(@RequestParam String login,
-                      @RequestParam String password,
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public String registration(@RequestParam String usernameReg,
+                      @RequestParam String passwordReg,
                       @RequestParam String fullName,
                       HttpSession session,
                       RedirectAttributes redirectAttributes) {
-        Status status = loginService.create(login, password, fullName);
+        Status status = loginService.create(usernameReg, passwordReg, fullName);
         switch(status) {
             case ALREADY_EXISTS:
-                redirectAttributes.addFlashAttribute("answer", "This Login Already Exists!");
-                return "redirect:/signUp";
+                redirectAttributes.addFlashAttribute("message", "This Login already exists!");
+                return "redirect:/";
             case INCORRECT_USERNAME:
-                redirectAttributes.addFlashAttribute("answer", "Login must contain only English symbols (at least 3)");
-                return "redirect:/signUp";
+                redirectAttributes.addFlashAttribute("message", "Login must contain only English symbols (at least 3)");
+                return "redirect:/";
             case INCORRECT_PASSWORD:
-                redirectAttributes.addFlashAttribute("answer", "Password must contain only numbers and English symbols (at least 5)");
-                return "redirect:/signUp";
+                redirectAttributes.addFlashAttribute("message", "Password must contain only numbers and English symbols (at least 5)");
+                return "redirect:/";
             case INCORRECT_FULLNAME:
-                redirectAttributes.addFlashAttribute("answer", "Full Name must contain at least 5 symbols");
-                return "redirect:/signUp";
+                redirectAttributes.addFlashAttribute("message", "Full Name must contain at least 5 symbols");
+                return "redirect:/";
             case SUCCESS:
                 session.setMaxInactiveInterval(900);
-                session.setAttribute("login", login);
-                return "redirect:/phoneBook";
+                session.setAttribute("username", usernameReg);
+                return "redirect:/phoneBookApp";
         }
-        return "redirect:/signUp";
+        return "redirect:/";
     }
-
 }

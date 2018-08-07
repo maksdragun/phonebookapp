@@ -40,7 +40,6 @@ public class PhoneBookAppController {
         }
     }
 
-
     @RequestMapping(value = "/phoneBookApp/add")
     public String add(HttpSession session,
                       Model model) {
@@ -69,25 +68,25 @@ public class PhoneBookAppController {
         Status status = phoneBookAppService.add(contact, user.getUsername());
         switch (status) {
             case INCORRECT_SURNAME:
-                redirectAttributes.addFlashAttribute("answer", "Surname must contain at least 4 symbols");
+                redirectAttributes.addFlashAttribute("message", "Surname must contain at least 4 symbols");
                 return "redirect:/phoneBookApp/add";
             case INCORRECT_FIRSTNAME:
-                redirectAttributes.addFlashAttribute("answer", "First Name must contain at least 4 symbols");
+                redirectAttributes.addFlashAttribute("message", "First Name must contain at least 4 symbols");
                 return "redirect:/phoneBookApp/add";
             case INCORRECT_PATRONYMIC:
-                redirectAttributes.addFlashAttribute("answer", "Patronymic must contain at least 4 symbols");
+                redirectAttributes.addFlashAttribute("message", "Patronymic must contain at least 4 symbols");
                 return "redirect:/phoneBookApp/add";
             case INCORRECT_MOBILE:
-                redirectAttributes.addFlashAttribute("answer", "Mobile phone must have format: +XXX(XX)XXX-XX-XX");
+                redirectAttributes.addFlashAttribute("message", "Mobile phone must have format: +XXX(XX)XXX-XX-XX");
                 return "redirect:/phoneBookApp/add";
             case INCORRECT_HOME:
-                redirectAttributes.addFlashAttribute("answer", "Home phone must have format: +XXX(XX)XXX-XX-XX");
+                redirectAttributes.addFlashAttribute("message", "Home phone must have format: +XXX(XX)XXX-XX-XX");
                 return "redirect:/phoneBookApp/add";
             case INCORRECT_EMAIL:
-                redirectAttributes.addFlashAttribute("answer", "Email must have format: test@example.com");
+                redirectAttributes.addFlashAttribute("message", "Email must have format: test@example.com");
                 return "redirect:/phoneBookApp/add";
             case SUCCESS:
-                redirectAttributes.addFlashAttribute("answer", "New entry added");
+                redirectAttributes.addFlashAttribute("message", "New entry added");
                 return "redirect:/phoneBookApp/add";
         }
         return "redirect:/phoneBookApp/add";
@@ -123,25 +122,25 @@ public class PhoneBookAppController {
         Status status = phoneBookAppService.edit(contact, user.getUsername());
         switch (status) {
             case INCORRECT_SURNAME:
-                redirectAttributes.addFlashAttribute("answer", "Surname must contain at least 4 symbols");
+                redirectAttributes.addFlashAttribute("message", "Surname must contain at least 4 symbols");
                 return "redirect:/phoneBookApp/edit/" + contactId;
             case INCORRECT_FIRSTNAME:
-                redirectAttributes.addFlashAttribute("answer", "First Name must contain at least 4 symbols");
+                redirectAttributes.addFlashAttribute("message", "First Name must contain at least 4 symbols");
                 return "redirect:/phoneBookApp/edit/" + contactId;
             case INCORRECT_PATRONYMIC:
-                redirectAttributes.addFlashAttribute("answer", "Patronymic must contain at least 4 symbols");
+                redirectAttributes.addFlashAttribute("message", "Patronymic must contain at least 4 symbols");
                 return "redirect:/phoneBookApp/edit/" + contactId;
             case INCORRECT_MOBILE:
-                redirectAttributes.addFlashAttribute("answer", "Mobile phone must have format: +XXX(XX)XXX-XX-XX");
+                redirectAttributes.addFlashAttribute("message", "Mobile phone must have format: +XXX(XX)XXX-XX-XX");
                 return "redirect:/phoneBookApp/edit/" + contactId;
             case INCORRECT_HOME:
-                redirectAttributes.addFlashAttribute("answer", "Home phone must have format: +XXX(XX)XXX-XX-XX");
+                redirectAttributes.addFlashAttribute("message", "Home phone must have format: +XXX(XX)XXX-XX-XX");
                 return "redirect:/phoneBookApp/edit/" + contactId;
             case INCORRECT_EMAIL:
-                redirectAttributes.addFlashAttribute("answer", "E-mail must have format: test@example.com");
+                redirectAttributes.addFlashAttribute("message", "E-mail must have format: test@example.com");
                 return "redirect:/phoneBookApp/edit/" + contactId;
             case SUCCESS:
-                redirectAttributes.addFlashAttribute("answer", "Contact Changed");
+                redirectAttributes.addFlashAttribute("message", "Contact Changed");
                 return "redirect:/phoneBookApp/edit/" + contactId;
         }
         return "redirect:/phoneBookApp/edit/" + contactId;
