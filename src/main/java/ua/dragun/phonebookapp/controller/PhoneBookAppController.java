@@ -153,7 +153,7 @@ public class PhoneBookAppController {
                   HttpSession session,
                   Model model) {
         Integer id = Integer.parseInt(contactId);
-        return phoneBookAppService.delete(id, session.getAttribute("username").toString())
+        return phoneBookAppService.remove(id, session.getAttribute("username").toString())
                 .toString();
     }
 
