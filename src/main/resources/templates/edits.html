@@ -1,107 +1,106 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:tiles="http://www.thymeleaf.org">
+      xmlns:tiles="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<title>PhoneBookApp</title>
+    <meta charset="UTF-8"/>
+    <title>PhoneBookApp</title>
 
-	<script language="JavaScript" type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
-	<link rel="stylesheet" href="/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=ABeeZee:400">
-	<link rel="stylesheet" href="/css/phonebookappStyle.css" />
-	<script language="JavaScript" type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
-	<script language="JavaScript" type="text/javascript" th:src="@{/js/script.js}"></script>
-
+    <script language="JavaScript" type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script language="JavaScript" type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <script language="JavaScript" type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script language="JavaScript" type="text/javascript" th:src="@{/js/script.js}"></script>
+    <link rel="stylesheet" href="/css/phonebookappStyle.css"/>
 </head>
 <body>
-	<div class="header">
-	    <div class="container-fluid nav-bar">
-	        <div class="container">
-	            <a class="appName" href="/">PhoneBookApp</a>
-						<div class="dropdown nav-button">
-						  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-						    Menu
-						    <span class="caret"></span>
-						  </button>
-						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-						    <li><a href="/phoneBookApp/add">Add Contacts</a></li>
-						    <li><a href="/phoneBookApp">Main</a></li>
-						  </ul>
-	                    <a class="btn btn-danger" href="/logOut">Log Out</a>
-						</div>
-	                    <h4 class="welcome" th:text="${username}"></h4>
-	        </div>
-	    </div>
-	</div>
+<div class="header">
+    <div class="container-fluid nav-bar ">
+        <div class="container">
+            <a class="appName" href="/">PhoneBookApp</a>
+            <div class="dropdown nav-button">
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Actions</button>
+                <ul class="dropdown-menu">
+                    <li><a href="/phoneBookApp/add">Add Contacts</a></li>
+                    <li><a href="/phoneBookApp">Main</a></li>
+                </ul>
+                <a class="btn btn-danger" href="/logOut">Log Out</a>
+            </div>
+            <h4 class="welcome" th:text="${username}"></h4>
+        </div>
+    </div>
+</div>
 
-	<div class="container">
-		<div class="row col-sm-6 col-sm-offset-3 form-bg">
-			<div class="row form-title-bg">
-				Change Contact
-			</div>
-			<hr />
-			<div class="row form-row">
-				<form id="form" class="form-horizontal" role="form" method="post" action="/phoneBookApp/addNewOrEditContact">
-					<div class="form-group" style="display: none;" >
-						<label for="contactId" class="col-sm-3 control-label">ID</label>
-						<div class="col-sm-offset-1 col-sm-8">
-					   		<input name="contactId" type="text" class="form-control" id="contactId" th:value="${contactId}" />
-						</div>
-					</div>
-					<div class="form-group">
-					   		<input name="id" type="text" class="form-control" id="id" th:value="${contactId}" style="display: none;" />
-						<label for="surname" class="col-sm-3 control-label">Surname *</label>
-						<div class="col-sm-offset-1 col-sm-8">
-					   		<input name="surname" type="text" class="form-control" id="surname" placeholder="Surname" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="firstName" class="col-sm-3 control-label">First Name *</label>
-						<div class="col-sm-offset-1 col-sm-8">
-					   		<input name="firstName" type="text" class="form-control" id="firstName" placeholder="First Name" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="patronymic" class="col-sm-3 control-label">Patronymic *</label>
-						<div class="col-sm-offset-1 col-sm-8">
-					   		<input name="patronymic" type="text" class="form-control" id="patronymic" placeholder="Patronymic" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="mobilePhone" class="col-sm-3 control-label">Mobile *</label>
-						<div class="col-sm-offset-1 col-sm-8">
-					   		<input name="mobilePhone" type="text" class="form-control" id="mobilePhone" placeholder="Format: +XXX(XX)XXXXXXX" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="homePhone" class="col-sm-3 control-label">Home</label>
-						<div class="col-sm-offset-1 col-sm-8">
-					   		<input name="homePhone" type="text" class="form-control" id="homePhone" placeholder="Format: +XXX(XX)XXXXXXX" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="address" class="col-sm-3 control-label">Address</label>
-						<div class="col-sm-offset-1 col-sm-8">
-					   		<input name="address" type="text" class="form-control" id="address" placeholder="Address" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="email" class="col-sm-3 control-label">E-mail</label>
-						<div class="col-sm-offset-1 col-sm-8">
-					   		<input name="email" type="text" class="form-control" id="email" placeholder="E-mail" />
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-offset-4 col-sm-8">
-      						<button type="button" class="btn btn-default addNewOrEditContact">Change</button>
-      						<a href="/phoneBookApp" class="btn btn-default">Back</a>
-						</div>
-					</div>
-				</form>
-			</div>
-			<div class="row form-message" th:text="${message}"></div>
-		</div>
-	</div>
-
+<div class="container centeredpb">
+    <div class="row col-sm-6 col-sm-offset-3 form-bg">
+        <div class="row pageName centeredpb">Change Contact</div>
+        <hr/>
+        <div class="row form-row centeredpb">
+            <form id="form" class="form-horizontal" role="form" method="post" action="/phoneBookApp/editContact">
+                <div class="form-group" style="display: none;">
+                    <label for="contactId" class="col-sm-3 control-label">ID</label>
+                    <div class="col-sm-offset-1 col-sm-8">
+                        <input name="contactId" type="text" class="form-control" id="contactId"
+                               th:value="${contactId}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input name="id" type="text" class="form-control" id="id" th:value="${contactId}"
+                           style="display: none;"/>
+                    <label for="surname" class="col-sm-3 control-label">Surname *</label>
+                    <div class="col-sm-offset-1 col-sm-8">
+                        <input name="surname" type="text" class="form-control" id="surname" placeholder="Surname"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">First Name *</label>
+                    <div class="col-sm-offset-1 col-sm-8">
+                        <input name="firstName" type="text" class="form-control" id="firstName"
+                               placeholder="First Name"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="patronymic" class="col-sm-3 control-label">Patronymic *</label>
+                    <div class="col-sm-offset-1 col-sm-8">
+                        <input name="patronymic" type="text" class="form-control" id="patronymic"
+                               placeholder="Patronymic"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mobilePhone" class="col-sm-3 control-label">Mobile *</label>
+                    <div class="col-sm-offset-1 col-sm-8">
+                        <input name="mobilePhone" type="text" class="form-control" id="mobilePhone"
+                               placeholder="Format: +XXX(XX)XXXXXXX"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="homePhone" class="col-sm-3 control-label">Home</label>
+                    <div class="col-sm-offset-1 col-sm-8">
+                        <input name="homePhone" type="text" class="form-control" id="homePhone"
+                               placeholder="Format: +XXX(XX)XXXXXXX"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-3 control-label">Address</label>
+                    <div class="col-sm-offset-1 col-sm-8">
+                        <input name="address" type="text" class="form-control" id="address" placeholder="Address"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">E-mail</label>
+                    <div class="col-sm-offset-1 col-sm-8">
+                        <input name="email" type="text" class="form-control" id="email" placeholder="E-mail"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="button" class="btn btn-default addNewOrEditContact">Edit contact</button>
+                        <a href="/phoneBookApp" class="btn btn-default">Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row form-message" th:text="${message}"></div>
+    </div>
+</div>
 </body>
 </html>

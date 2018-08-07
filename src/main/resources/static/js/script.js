@@ -74,7 +74,6 @@ $(document).ready(function () {
             answer.text("Fields marked with an * are required");
         }
     });
-
     (function ($) {
         $('.filter').keyup(function () {
             var rex = new RegExp($(this).val(), 'i');
@@ -88,6 +87,7 @@ $(document).ready(function () {
     (jQuery));
 });
 
+
 function removeContact(id) {
     var contactId = id;
     $("#" + contactId + "").closest("tr").remove();
@@ -97,6 +97,7 @@ function removeContact(id) {
             contactId: contactId
         },
         function success(data) {
+            console.log("contact with id " + data + " - removed");
         }
     );
 }

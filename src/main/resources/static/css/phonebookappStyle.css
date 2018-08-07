@@ -1,21 +1,52 @@
 body {
     background: url("../images/background.png") repeat;
+    font-family: 'Century Gothic', serif;
 }
 
-label {
+label{
     font-weight: 100;
-}
-.form-bg {
-    border: 1px solid gray;
-    margin-top: 15%;
-    background-color: rgb(188, 232, 173);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.76);
+    display: initial;
 }
 
-.form-title-bg {
-    font: 20pt bubble;
-    text-align: justify;
+.form-group{
+    width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-bg {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    width: 600px;
+    box-sizing: border-box;
+    margin-bottom: auto;
     margin-top: 5%;
+    background: url("../images/form-background.png") repeat;
+    -webkit-box-shadow: 0 0 12px 0 rgba(150, 180, 210, .9);
+    -moz-box-shadow: 0 0 12px 0 rgba(150, 180, 210, .9);
+    box-shadow: 0 0 12px 0 rgba(150, 180, 210, .9);
+}
+
+.contactlist {
+    font-weight:bold;
+    font-family: 'Ubuntu', cursive;
+    text-transform: uppercase;
+    font-size: 45px;
+    letter-spacing: 0.25em;
+    color: #1ABC9C;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #34495E;
+    text-shadow:
+            -1px 1px 0 #34495E,
+            -2px 2px 0 #34495E,
+            -3px 3px 0 #34495E,
+            -4px 4px 0 #34495E,
+            -5px 5px 0 #34495E,
+            7px 8px 0 rgba(0, 0, 0, 0.1);
+    margin: 0 0 10px 0;
 }
 
 hr {
@@ -25,13 +56,20 @@ hr {
 
 .form-row {
     margin: 0;
-    font: 20pt bubble;
+    font: 15px bubble;
 }
 
 .form-message {
     font: 12pt bubble;
     justify-content: center;
     color: crimson;
+}
+
+.centeredpb {
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header {
@@ -43,37 +81,44 @@ hr {
 
 .nav-bar {
     padding: 0;
-    background-color: rgba(199, 233, 237, 0.93);
     display: block;
     border-bottom: 1px solid gray;
+    min-height: 60px;
 }
 
 .appName {
+    font: bold 34px "Century Gothic", Georgia, Times, serif;
+    color: #434343;
+    letter-spacing: -2px;
     float: left;
-    padding: 15px;
+    padding: 20px;
     line-height: 20px;
     height: 50px;
-    color: black;
-    font: 16pt bubble;
+}
+
+.pageName {
+    font: bold 40px "Century Gothic", Georgia, Times, serif;
+    color: #434343;
+    letter-spacing: -2px;
+    padding: 20px;
+    line-height: 20px;
+    height: 50px;
+    margin-top: 5%;
 }
 
 .nav-button {
     float: right;
-    margin: 5px 0 10px 15px;
+    margin: 8px 0 8px 15px;
 }
 
 .welcome {
+    font: 24px "Century Gothic", Georgia, Times, serif;
+    color: #434343;
+    line-height: 90%;
+    margin: .2em 0 .4em 0;
+    letter-spacing: -2px;
     float: right;
-    font: 20pt bubble;
     padding: 17px;
-    margin: 0;
-}
-
-.contentIndex {
-    box-sizing: border-box;
-    width: 600px;
-    margin: 0 auto;
-    padding: 25px 15px 5px;
 }
 
 table {
@@ -92,12 +137,10 @@ td {
     text-align: right;;
     font: 11pt bubble;
 }
-
-.results tr[visible='false'],
-.no-result{
-    display:none;
-}
-
-.results tr[visible='true']{
-    display:table-row;
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }

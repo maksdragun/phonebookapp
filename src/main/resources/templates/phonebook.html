@@ -1,84 +1,81 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:tiles="http://www.thymeleaf.org">
+      xmlns:tiles="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<title>PhoneBookApp</title>
+    <meta charset="UTF-8"/>
+    <title>PhoneBookApp</title>
 
-	<script language="JavaScript" type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
-	<link rel="stylesheet" href="/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=ABeeZee:400">
-	<link rel="stylesheet" href="/css/phonebookappStyle.css" />
-	<script language="JavaScript" type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
-	<script language="JavaScript" type="text/javascript" th:src="@{/js/script.js}"></script>
+    <script language="JavaScript" type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script language="JavaScript" type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <script language="JavaScript" type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script language="JavaScript" type="text/javascript" th:src="@{/js/script.js}"></script>
+    <link rel="stylesheet" href="/css/phonebookappStyle.css"/>
 
 </head>
 <body>
-	<div class="header">
-	    <div class="container-fluid nav-bar">
-	        <div class="container">
-	            <a class="appName" href="/">PhoneBookApp</a>
-						<div class="dropdown nav-button">
-						  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-						    Menu
-						    <span class="caret"></span>
-						  </button>
-						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-						    <li><a href="/phoneBookApp/addNew">Add Contacts</a></li>
-						  </ul>
-	                    <a class="btn btn-danger" href="/logOut">Log Out</a>
-						</div>
-	                    <h4 class="welcome" th:text="${username}"></h4>
-	        </div>
-	    </div>
-	</div>
-	
-	<div class="content">
-		<div class="container">
-			<div class="row form-title-bg">
-				Contact list
-			</div>
-				<hr />
-				
-			<div class="row">
-				<div class="col-sm-4 col-sm-offset-4">
-			    	<input type="text" class="filter form-control justify-content-center" placeholder="Search" />
-				</div>
-			</div>
-				<hr />
+<div class="header">
+    <div class="container-fluid nav-bar ">
+        <div class="container">
+            <a class="appName" href="/">PhoneBookApp</a>
+            <div class="dropdown nav-button">
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Actions</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/phoneBookApp/add">Add Contacts</a></li>
+                </ul>
+                <a class="btn btn-danger" href="/logOut">Log Out</a>
+            </div>
+            <h4 class="welcome" th:text="${username}"></h4>
+        </div>
+    </div>
+</div>
 
-		    <div class="row">
-		      <div class="col-sm-15">
-		        <table class="table table-hover table-bordered contact-table">
-		          <thead>
-					<th>Surname</th>
-					<th>First Name</th>
-					<th>Patronymic</th>
-					<th>Mobile Phone</th>
-					<th>Home Phone</th>
-					<th>Address</th>
-					<th>E-mail</th>
-					<th>Actions</th>
-		          </thead>
-		          <tbody>
-					<tr th:each="contact : ${contacts}" >
-						<td th:text="${contact.surname}" class="for-search">surname</td>
-						<td th:text="${contact.firstName}" class="for-search">firstName</td>
-						<td th:text="${contact.patronymic}">patronymic</td>
-						<td th:text="${contact.mobilePhone}" class="for-search">mobilePhone</td>
-						<td th:text="${contact.homePhone}">homePhone</td>
-						<td th:text="${contact.address}">address</td>
-						<td th:text="${contact.email}">email</td>
-						<td>
-							<a th:href="${'/phoneBookApp/edit/' + contact.id}" class="btn btn-info">Edit</a>
-							<a th:id="${contact.id}" th:onclick="'removeContact(\'' + ${contact.id} + '\')'" class="btn btn-danger">Delete</a>
-						</td>
-		            </tr>
-		          </tbody>
-		        </table>
-		      </div>
-		    </div>
-		</div>
-	</div>
+<div class="content centeredpb">
+    <div class="container">
+        <div class="row contactlist centeredpb">Contact list</div>
+        <hr/>
+        <div class="row centeredpb">
+            <div class="col-sm-4 col-sm-offset-4">
+                <input type="text" class="filter form-control" placeholder="Search"/>
+            </div>
+        </div>
+        <hr/>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table id="contacttable" class="table table-bordered table-striped">
+                        <thead>
+                        <th>Surname</th>
+                        <th>First Name</th>
+                        <th>Patronymic</th>
+                        <th>Mobile Phone</th>
+                        <th>Home Phone</th>
+                        <th>Address</th>
+                        <th>E-mail</th>
+                        <th>Edit</th>
+                        </thead>
+                        <tbody>
+                        <tr th:each="contact : ${contacts}">
+                            <td th:text="${contact.surname}" class="for-search">surname</td>
+                            <td th:text="${contact.firstName}" class="for-search">firstName</td>
+                            <td th:text="${contact.patronymic}">patronymic</td>
+                            <td th:text="${contact.mobilePhone}" class="for-search">mobilePhone</td>
+                            <td th:text="${contact.homePhone}">homePhone</td>
+                            <td th:text="${contact.address}">address</td>
+                            <td th:text="${contact.email}">email</td>
+                            <td>
+                                <a th:href="${'/phoneBookApp/edit/' + contact.id}" class="btn btn-info">Edit</a>
+                                <a th:id="${contact.id}" th:onclick="'removeContact(\'' + ${contact.id} + '\')'" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </body>
 </html>

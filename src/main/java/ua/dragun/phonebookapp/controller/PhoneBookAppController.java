@@ -92,7 +92,6 @@ public class PhoneBookAppController {
         return "redirect:/phoneBookApp/add";
     }
 
-
     @RequestMapping(value = "/phoneBookApp/edit/{contactId}")
     public String edit(HttpSession session,
                        @PathVariable String contactId,
@@ -149,7 +148,7 @@ public class PhoneBookAppController {
 
     @RequestMapping(value = "/phoneBookApp/delete", method = RequestMethod.POST)
     public @ResponseBody
-    String delete(@RequestParam String contactId,
+    String remove(@RequestParam String contactId,
                   HttpSession session,
                   Model model) {
         Integer id = Integer.parseInt(contactId);
