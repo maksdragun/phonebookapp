@@ -18,12 +18,12 @@
         <div class="container">
             <a class="appName" href="/">PhoneBookApp</a>
             <div class="dropdown nav-button">
-                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Actions</button>
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Actions</button>
                 <ul class="dropdown-menu">
                     <li><a href="/phoneBookApp/add">Add Contacts</a></li>
                     <li><a href="/phoneBookApp">Main</a></li>
                 </ul>
-                <a class="btn btn-danger" href="/logOut">Log Out</a>
+                <a class="btn btn-secondary" href="/logOut">Log Out</a>
             </div>
             <h4 class="welcome" th:text="${username}"></h4>
         </div>
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-4 col-sm-8">
+                    <div class="col-sm-offset-4 col-sm-6">
                         <button type="button" class="btn btn-default addNewOrEditContact">Edit contact</button>
                         <a href="/phoneBookApp" class="btn btn-default">Back</a>
                     </div>

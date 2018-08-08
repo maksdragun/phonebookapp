@@ -19,11 +19,11 @@
         <div class="container">
             <a class="appName" href="/">PhoneBookApp</a>
             <div class="dropdown nav-button">
-                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Actions</button>
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Actions</button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/phoneBookApp/add">Add Contacts</a></li>
                 </ul>
-                <a class="btn btn-danger" href="/logOut">Log Out</a>
+                <a class="btn btn-secondary" href="/logOut">Log Out</a>
             </div>
             <h4 class="welcome" th:text="${username}"></h4>
         </div>
@@ -42,10 +42,11 @@
         <hr/>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 centeredpb">
                 <div class="table-responsive">
-                    <table id="contacttable" class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped thead-light">
                         <thead>
+                        <th>#</th>
                         <th>Surname</th>
                         <th>First Name</th>
                         <th>Patronymic</th>
@@ -57,6 +58,7 @@
                         </thead>
                         <tbody>
                         <tr th:each="contact : ${contacts}">
+                            <td th:text="${contact.id}">contactId</td>
                             <td th:text="${contact.surname}" class="for-search">surname</td>
                             <td th:text="${contact.firstName}" class="for-search">firstName</td>
                             <td th:text="${contact.patronymic}">patronymic</td>
@@ -65,8 +67,8 @@
                             <td th:text="${contact.address}">address</td>
                             <td th:text="${contact.email}">email</td>
                             <td>
-                                <a th:href="${'/phoneBookApp/edit/' + contact.id}" class="btn btn-info">Edit</a>
-                                <a th:id="${contact.id}" th:onclick="'removeContact(\'' + ${contact.id} + '\')'" class="btn btn-danger">Delete</a>
+                                <a th:href="${'/phoneBookApp/edit/' + contact.id}" class="btn btn-outline-secondary">Edit</a>
+                                <a th:id="${contact.id}" th:onclick="'removeContact(\'' + ${contact.id} + '\')'" class="btn btn-outline-secondary">Delete</a>
                             </td>
                         </tr>
                         </tbody>

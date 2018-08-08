@@ -1,6 +1,11 @@
+*{
+    font-family: "Century Gothic", sans-serif ;
+    font-size: 1em;
+    color: #434343;
+}
+
 body {
     background: url("../images/background.png") repeat;
-    font-family: 'Century Gothic', serif;
 }
 
 label{
@@ -13,6 +18,10 @@ label{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.table-responsive{
+
 }
 
 .form-bg {
@@ -32,7 +41,7 @@ label{
 
 .contactlist {
     font-weight:bold;
-    font-family: 'Ubuntu', cursive;
+    font-family: 'Century Gothic', cursive;
     text-transform: uppercase;
     font-size: 45px;
     letter-spacing: 0.25em;
@@ -124,23 +133,33 @@ hr {
 table {
     background-color: rgba(141, 237, 121, 0.9);
     border: 1px solid #93262f !important;
+    vertical-align: center;
+}
+.table td, .table th{
+    vertical-align: middle;
 }
 
 th {
     border: 1px solid #56505d !important;
     font: 15pt bubble;
     text-align: center;
+    font-family: "Century Gothic", sans-serif;
+    font-size: 1em;
+    white-space: nowrap;
 }
 
 td {
     border: 1px solid #734d42 !important;
-    text-align: right;;
+    text-align: center;
     font: 11pt bubble;
+    font-family: "Century Gothic", sans-serif;
+    font-size: 1em;
+    white-space: nowrap;
 }
 .container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    max-width: 100%;
+    padding-right: 10%;
+    padding-left: 10%;
     margin-right: auto;
     margin-left: auto;
 }
