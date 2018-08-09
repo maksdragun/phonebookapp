@@ -104,7 +104,6 @@ public class PhoneBookAppController {
         return "redirect:/";
     }
 
-
     @RequestMapping(value = "/phoneBookApp/editContact", method = RequestMethod.POST)
     public String editContact(@RequestParam String contactId,
                               @RequestParam String surname,
