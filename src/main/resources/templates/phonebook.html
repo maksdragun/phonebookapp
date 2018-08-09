@@ -46,7 +46,6 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped thead-light">
                         <thead>
-                        <th>#</th>
                         <th>Surname</th>
                         <th>First Name</th>
                         <th>Patronymic</th>
@@ -58,7 +57,6 @@
                         </thead>
                         <tbody id="contactTable">
                         <tr th:each="contact : ${contacts}">
-                            <td th:text="${contact.id}">contactId</td>
                             <td th:text="${contact.surname}">surname</td>
                             <td th:text="${contact.firstName}">firstName</td>
                             <td th:text="${contact.patronymic}">patronymic</td>
